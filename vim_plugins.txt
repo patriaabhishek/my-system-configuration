@@ -1,0 +1,10 @@
+VundleVim/Vundle.vim
+tpope/vim-fugitive
+rstacruz/sparkup
+junegunn/fzf
+scrooloose/nerdtree
+w0rp/ale
+tpope/vim-surround
+vim-airline/vim-airline
+valloric/youcompleteme
+airblade/vim-gitgutter   
