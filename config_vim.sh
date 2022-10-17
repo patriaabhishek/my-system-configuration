@@ -1,11 +1,14 @@
 #!/usr/bin/zsh
-export PATH="/usr/local/bin":$PATH
+export PATH="/usr/bin":$PATH
 
 
 ###############################
 ###### Configuring VIM ########
 ###############################
 
+#Installing libncurses-dev as some distros might not have it
+apt-get install -y libncurses-dev
+apt-get install -y python3-dev
 
 #Installing VIM by compiling and adding python3 support
 git clone https://github.com/vim/vim.git
@@ -26,7 +29,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim_plugins_names=""
 
 while read -r line; do
-   vim_plugins_names+="Plugin '${line}'\n"
+   vim_plugins_names+="Plugin '"${line}"'\n"
    echo "Plugin to install: ${line}"
 done < vim_plugins.txt
 

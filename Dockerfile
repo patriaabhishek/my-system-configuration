@@ -23,7 +23,7 @@ ADD ./ivz-common-debian.sh ./config_zsh.sh ./zsh_plugins.txt ./.p10k.zsh ./p10kh
 RUN chmod -R 777 ./ && \
     ./ivz-common-debian.sh && \
     update-ca-certificates && \
-    ./config_zsh.sh && \
+    ./config_zsh.sh && \ 
     ./config_vim.sh
 
 
