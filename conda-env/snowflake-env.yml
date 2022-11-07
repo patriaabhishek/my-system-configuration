@@ -1,0 +1,31 @@
+name: snowflake-env
+
+channels:
+  - https://repo.anaconda.com/pkgs/snowflake/linux-64/
+  - https://repo.anaconda.com/pkgs/snowflake/noarch/
+  - nodefaults
+
+dependencies:
+  - python
+  - pandas
+  - pip
+  - numpy
+  - scikit-learn
+  - plotly
+  - snowflake-snowpark-python
+  - snowflake-connector-python
+  - boto3
+  - pytest
+  - spacy
+  - gensim
+  - nltk
+  - pytorch
+  - pip:
+    - pdblp
+    - watchdog
+    - streamlit
+    - jupyterlab
+    - jupyterlab-git
+    - jupyter-server-proxy
+    - azure-core
+    - azure-identity

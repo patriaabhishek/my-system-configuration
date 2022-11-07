@@ -1,0 +1,5 @@
+channels:
+ - https://repo.anaconda.com/pkgs/snowflake/osx-64
+ - https://repo.anaconda.com/pkgs/snowflake/noarch
+ - conda-forge
+ - nodefaults
