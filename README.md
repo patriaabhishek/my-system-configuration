@@ -8,9 +8,11 @@ The scripts could be used for configuring:
 3. Anaconda 
 
 ## Installation Instructions:
-*Ensure that your terminal supports 256-color, otherwise expect erratic behaviour
-*Ensure that the scripts are executables and run in the order presented below*
-*Check for shebangs, if for some reason the scripts don't work*
+
+*Ensure that your terminal supports 256-color, otherwise expect erratic behaviour*
+
+*Check that the scripts are executables and run in the order presented below*
+
 ### MacOS
 1. `configuration-osx.sh`
 2. `homebrew.sh`
@@ -27,5 +29,7 @@ The scripts could be used for configuring:
 4. `conda-env/config_conda.sh`
 5. `conda-env/config_conda_envs.sh`
 
+### Notes:
 - Above scripts have been tested on an Anaconda Docker Image
 - Relevant testing scripts could be found in the repo
+- Check shebangs, if for some reason the scripts don't work
