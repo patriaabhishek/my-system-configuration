@@ -7,7 +7,6 @@ tmuxinator
 thefuck
 github
 fzf
-aws
 docker
 history
 zsh-syntax-highlighting
@@ -15,4 +14,5 @@ emoji
 colored-man-pages
 colorize 
 web-search
-vscode
+iterm2
+macos

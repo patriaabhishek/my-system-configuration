@@ -66,13 +66,14 @@ sed -i -e "s/plugins=(git)/plugins=(${zsh_plugins_names})/g" ~/.zshrc
 
 
 #Adding aliases  to .zshrc
-#echo "alias ls=\"ls -lsa\""  >> ~/.zshrc
 
 #Installing exa as a replacement of ls
-apt-get install exa
+echo "alias lsa=\"exa --long --all --group --icons\"" >> ~/.zshrc
 
-echo "alias ls=\"exa\"" >> ~/.zshrc
-echo "alias la=\"exa --long --all --group --icons\"" >> ~/.zshrc
+#Adding option to activate preferred conda environment by default
+echo "\n#Activate your preferred conda environment by default" >> ~/.zshrc
+echo "#conda activate py-env" >> ~/.zshrc
+
 
 ##Setting terminal color to 256 if 8 colors
 #if [ ${TERM}="xterm" ]; then

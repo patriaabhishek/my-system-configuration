@@ -6,6 +6,7 @@ export PATH="/usr/bin":$PATH
 ###### Configuring VIM ########
 ###############################
 
+
 #Installing libncurses-dev as some distros might not have it
 apt-get install -y libncurses-dev
 apt-get install -y python3-dev
@@ -13,7 +14,7 @@ apt-get install -y python3-dev
 #Installing VIM by compiling and adding python3 support
 git clone https://github.com/vim/vim.git
 cd vim/src
-./configure --with-features=huge --enable-python3interp=yes 
+./configure --with-features=huge --enable-python3interp=yes
 make
 make install
 
