@@ -1,5 +1,7 @@
 conda activate
 
+conda update conda -y
+
 conda env create -f ./py-env.yml
 conda env create -f ./snowflake-env.yml
 

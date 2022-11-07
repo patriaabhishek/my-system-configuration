@@ -9,8 +9,8 @@ RUN apt-get update && \
     chsh -s /usr/bin/zsh
 
 ADD ./ivz-common-debian \
-    ./config_conda \
-    ./config_conda_envs \
+    ./config_conda.sh \
+    ./config_conda_envs.sh \
     ./py-env.yml \
     ./py-env-condarc \
     ./snowflake-env.yml \
@@ -20,7 +20,7 @@ ADD ./ivz-common-debian \
 RUN chmod -R 777 ./ && \
     ./ivz-common-debian && \
     update-ca-certificates && \
-    ./config_conda && \
-    ./config_conda_envs
+    ./config_conda.sh && \
+    ./config_conda_envs.sh
 
 CMD ["zsh"]
