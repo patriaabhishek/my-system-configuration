@@ -22,7 +22,7 @@ The scripts could be used for configuring:
 6. `conda-env/config_conda.sh`
 7. `conda-env/config_conda_envs.sh`
 
-### MacOS
+### Linux
 1. `config_zsh.sh`
 2. `config_vim`
 3. `config_nano.sh`
