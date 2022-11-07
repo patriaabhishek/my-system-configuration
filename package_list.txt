@@ -1,0 +1,17 @@
+coreutils
+wget
+curl
+openssl
+g++
+cmake
+exa
+jq
+grc
+tree
+tmux
+redis
+watchman
+python
+nano
+unzip
+zsh
