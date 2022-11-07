@@ -24,23 +24,23 @@ RUN apt-get update && \
 #     apt-get clean && \
 #     chsh -s /usr/bin/zsh
 
-ADD ./ivz-common-debian \
-    ./config_zsh \
+ADD ./ivz-common-debian.sh \
+    ./config_zsh.sh \
     ./zsh_plugins.txt \
     ./.p10k.zsh \
     ./p10kheader.txt \
     ./p10kfooter.txt \
     ./.vimrc \
-    ./config_vim \
+    ./config_vim.sh \
     ./vim_plugins.txt \
-    ./config_nano \
+    ./config_nano.sh \
     ./
 
 RUN chmod -R 777 ./ && \
-    ./ivz-common-debian && \
+    ./ivz-common-debian.sh && \
     update-ca-certificates && \
-    ./config_zsh && \
-    ./config_vim && \
-    ./config_nano
+    ./config_zsh.sh && \
+    ./config_vim.sh && \
+    ./config_nano.sh
 
 CMD ["zsh"]
