@@ -2,11 +2,10 @@
 C:\Users\patri\AppData\Local\Programs\oh-my-posh\themes
 
 
-
-
 #Add the following lines to the file by executing the command "notepad $PROFILE"
 
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/abhishek_pc_ohmyposhconfig.omp.json" | Invoke-Expression
 conda activate py-env
 function lsa{eza -al --icons}
+function winget_update{winget update --all --silent --accept-package-agreements --accept-source-agreements}
 Import-Module posh-git
