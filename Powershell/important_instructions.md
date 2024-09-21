@@ -18,7 +18,11 @@ conda install pandas numpy scikit-learn scipy matplotlib jupyterlab notebook
 
 4. Install all software using the install software script by running the following command in Powershell 
 
-```.\install_apps.ps1```
+```
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+cd "C:\Path\To\Your\Script"
+.\install_apps.ps1
+```
 
 5. Dump the configuration json file to the given folder
 C:\Users\patri\AppData\Local\Programs\oh-my-posh\themes
