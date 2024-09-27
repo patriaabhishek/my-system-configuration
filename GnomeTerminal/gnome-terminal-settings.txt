@@ -1,0 +1,36 @@
+[legacy/keybindings]
+close-tab='<Primary>w'
+close-window='<Primary>q'
+copy='<Primary>c'
+new-tab='<Primary>t'
+new-window='<Primary>n'
+paste='<Primary>v'
+select-all='<Primary>a'
+
+[legacy/profiles:]
+default='6d2f5df5-d9a7-4abb-874f-d604dcbccd2e'
+list=['6d2f5df5-d9a7-4abb-874f-d604dcbccd2e']
+
+[legacy/profiles:/:6d2f5df5-d9a7-4abb-874f-d604dcbccd2e]
+audible-bell=true
+background-color='rgb(38,49,55)'
+background-transparency-percent=5
+bold-color='rgb(237,238,237)'
+bold-color-same-as-fg=false
+bold-is-bright=false
+cursor-background-color='rgb(38,49,55)'
+cursor-colors-set=false
+cursor-foreground-color='rgb(237,238,237)'
+default-size-columns=165
+default-size-rows=37
+font='Fira Code 11'
+foreground-color='rgb(236,238,240)'
+highlight-background-color='rgb(96,124,138)'
+highlight-colors-set=true
+highlight-foreground-color='rgb(236,238,240)'
+palette=['rgb(84,109,121)', 'rgb(254,81,81)', 'rgb(105,239,173)', 'rgb(255,214,64)', 'rgb(64,195,254)', 'rgb(254,63,128)', 'rgb(100,252,218)', 'rgb(255,254,254)', 'rgb(176,189,196)', 'rgb(254,137,127)', 'rgb(185,245,201)', 'rgb(255,228,126)', 'rgb(128,215,254)', 'rgb(254,127,170)', 'rgb(167,253,235)', 'rgb(255,254,254)']
+use-system-font=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true
+visible-name='Mac Material'
