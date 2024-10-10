@@ -33,7 +33,15 @@ C:\Users\patri\AppData\Local\Programs\oh-my-posh\themes
 
 ```PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force```
 
-9. Add the following lines to the file by executing the command ```notepad $PROFILE```
+8. Run this to install PSReadline that helps provide completions in PowerShell
+
+```Install-Module PSReadLine```
+
+9. Run the following line to set the prediction source
+
+```Set-PSReadLineOption -PredictionSource HistoryAndPlugin```
+
+10. Add the following lines to the file by executing the command ```notepad $PROFILE```
 
 ```
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/abhishek_pc_ohmyposhconfig.omp.json" | Invoke-Expression
