@@ -8,7 +8,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 " === Plugins! ===
 
-"insert_plugins_from_file
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'rstacruz/sparkup'
+Plugin 'junegunn/fzf'
+Plugin 'scrooloose/nerdtree'
+Plugin 'w0rp/ale'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'valloric/youcompleteme'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

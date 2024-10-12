@@ -18,7 +18,6 @@ WiresharkFoundation.Wireshark
 Miro.Miro
 Notion.Notion
 Anaconda.Miniconda3
-XP8K0HKJFRXGCK
 Postman.Postman
 eza-community.eza
 Microsoft.PowerToys
