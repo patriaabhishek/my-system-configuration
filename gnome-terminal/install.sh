@@ -2,7 +2,7 @@
 sudo add-apt-repository universe
 
 # Install basic stuff
-sudo apt install -y coreutils software-properties-common wget curl openssl cmake jq grc tree tmux redis watchman python3-dev python3-pip libncurses-dev gcc unzip nano zsh vim build-essential python3-setuptools cmake
+sudo apt install -y coreutils software-properties-common wget curl openssl cmake jq grc tree tmux redis watchman python3-dev python3-pip libncurses-dev gcc unzip nano zsh vim build-essential python3-setuptools cmake figlet
 
 # Firacode
 sudo apt install fonts-firacode
