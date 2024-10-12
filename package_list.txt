@@ -4,7 +4,7 @@ curl
 openssl
 g++
 cmake
-exa
+eza
 jq
 grc
 tree

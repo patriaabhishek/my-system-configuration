@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -15,8 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -78,19 +70,48 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
-	tmux
-	tmuxinator
-	fzf
-	docker
-	thefuck
-	history
-	emoji
-	colored-man-pages
-	colorize
-	web-search
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-	)
+		tmux
+		tmuxinator
+		fzf
+		docker
+		docker-compose
+		ansible
+		aws
+		bgnotify
+		celery
+		command-not-found
+		copypath
+		extract
+		gh
+		helm
+		isodate
+		kubectl
+		minikube
+		nmap
+		npm
+		nvm
+		otp
+		pip
+		podman
+		poetry
+		python
+		qrcode
+		react-native
+		safe-paste
+		terraform
+		ubuntu
+		vundle
+		yarn
+		vscode
+		thefuck
+		history
+		emoji
+		colored-man-pages
+		colorize
+		web-search
+		zsh-autosuggestions
+		zsh-syntax-highlighting
+		)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -132,8 +153,6 @@ export NVM_DIR="$HOME/.nvm"
 #TheFuck
 eval $(thefuck --alias)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -178,4 +197,18 @@ vpn_off() {
 
 vpn_status(){
 	sudo wg show
+}
+
+# System update
+update_system(){
+
+        figlet -ctp "Updating Linux"
+        sudo apt update
+        sudo apt -y upgrade
+        sudo apt clean
+        figlet -ctp "Refreshing Snaps"
+        sudo snap refresh
+        figlet -ctp "Updating Conda"
+        conda update --all -y -y
+        conda clean --all -y -y
 }
