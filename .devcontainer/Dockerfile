@@ -1,4 +1,5 @@
-FROM mcr.microsoft.com/devcontainers/python:1-3.12-bullseye
+# FROM mcr.microsoft.com/devcontainers/python:1-3.12
+FROM mcr.microsoft.com/devcontainers/universal:2-focal
 
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
@@ -23,5 +24,7 @@ RUN apt-get update && \
     rm -rf /tmp/scripts
 
 USER root
-RUN usermod -aG sudo vscode
-USER vscode
+# RUN usermod -aG sudo vscode
+# USER vscode
+RUN usermod -aG sudo codespace
+USER codespace

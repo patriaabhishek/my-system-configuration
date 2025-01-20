@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/alpine
 {
-    "name": "Rough-Ubuntu",
+    "name": "My-Garage",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
     // "image": "mcr.microsoft.com/devcontainers/base:alpine-3.20"
     "dockerComposeFile": "docker-compose.yml",
@@ -14,7 +14,7 @@
     "containerEnv": {
         "LOCAL_WORK_DIR": "${localWorkspaceFolder}",
         "CONTAINER_WORK_DIR": "${containerWorkspaceFolder}",
-        "OPENSSL_CONF": "/etc/ssl/openssl.cnf"
+        // "OPENSSL_CONF": "/etc/ssl/openssl.cnf"
     },
     "remoteEnv": {
         // the original host directory which is needed for volume mount commands from inside the container (Docker in Docker)
@@ -30,11 +30,16 @@
         "ghcr.io/devcontainers/features/git-lfs:1": {},
         "ghcr.io/devcontainers/features/git:1": {},
         "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {},
         "ghcr.io/devcontainers-contrib/features/nmap-apt-get:1": {},
         "ghcr.io/devcontainers-contrib/features/fzf:1": {},
         "ghcr.io/devcontainers-contrib/features/prometheus:1": {},
         "ghcr.io/devcontainers-contrib/features/tmux-apt-get:1": {},
         "ghcr.io/devcontainers-contrib/features/vscode-cli:1": {},
+        "ghcr.io/devcontainers-contrib/features/vscode-server:1": {},
+        // "ghcr.io/devcontainers-contrib/features/actions-runner:1": {},
+        "ghcr.io/devcontainers-contrib/features/bin:1": {},
+        "ghcr.io/devcontainers-contrib/features/devcontainers-cli:1": {},
         // "ghcr.io/devcontainers-contrib/features/cert-manager:1": {},
         // Installing python components and packages
         "ghcr.io/devcontainers-contrib/features/pipx-package:1": {},
@@ -43,34 +48,52 @@
         "ghcr.io/devcontainers-contrib/features/isort:2": {},
         "ghcr.io/devcontainers-contrib/features/mypy:2": {},
         "ghcr.io/devcontainers-contrib/features/ruff:1": {},
+        "ghcr.io/devcontainers-contrib/features/flake8:2": {},
+        "ghcr.io/devcontainers-contrib/features/pylint:2": {},
         // Installing typescript components and packages
         "ghcr.io/devcontainers-contrib/features/typescript:2": {},
         "ghcr.io/devcontainers-contrib/features/tsx:1": {},
         "ghcr.io/devcontainers-contrib/features/ts-node:1": {},
+        "ghcr.io/devcontainers-contrib/features/jest:2": {},
+        "ghcr.io/devcontainers-contrib/features/nestjs-cli:2": {},
+        "ghcr.io/devcontainers-contrib/features/prettier:1": {},
         // Installing devops components and packages
+        "ghcr.io/devcontainers/features/terraform:1": {},
         // "ghcr.io/devcontainers-contrib/features/ansible:2": {},
         "ghcr.io/devcontainers-contrib/features/cookiecutter:2": {},
-        "ghcr.io/devcontainers/features/terraform:1": {},
+        "ghcr.io/devcontainers-contrib/features/tailscale:1": {},
+        "ghcr.io/devcontainers-contrib/features/tldr:2": {},
         // Installing youtube components and packages
         "ghcr.io/devcontainers-contrib/features/ffmpeg-apt-get:1": {},
         "ghcr.io/devcontainers-contrib/features/yt-dlp:2": {}
     },
     "mounts": [
-        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+        // "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",//Use this for a Linux/MacOS host
+        "source=//var/run/docker.sock,target=/var/run/docker.sock,type=bind", //Use this for a Windows host. Note the extra "/" in the beginning
         "source=${env:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
         "source=${env:HOME}/.kube,target=/home/vscode/.kube,type=bind,consistency=cached",
         "source=${env:HOME}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached",
         "source=${localWorkspaceFolder}/.devcontainer/.npmrc,target=/home/vscode/.npmrc,type=bind,consistency=cached",
         "source=${localWorkspaceFolder}/.devcontainer/.yarnrc,target=/home/vscode/.yarnrc,type=bind,consistency=cached",
         "source=${localWorkspaceFolder}/.devcontainer/.zshrc,target=/home/vscode/.zshrc,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder}/.devcontainer/openssl.conf,target=/etc/ssl/openssl.cnf,type=bind,consistency=cached"
+        "source=${localWorkspaceFolder}/.devcontainer/openssl.conf,target=/etc/ssl/openssl.conf,type=bind,consistency=cached"
     ],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    // "forwardPorts": [],
+    "forwardPorts": [
+        5432,
+        5050,
+        5555,
+        6379,
+        8080
+    ],
     // Use 'postCreateCommand' to run commands after the container is created.
-    // "postCreateCommand": "uname -a",
+    "postCreateCommand": ".devcontainer/postCreateCommand.sh",
     // Configure tool-specific properties.
-    // "customizations": {},
+    "customizations": { //Configure properties specific to VS Code.
+        "vscode": { // Add the IDs of extenstions you want installed when the container is created}}
+            "extensions": []
+        }
+    }
     // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
     // "remoteUser": "root"
 }
