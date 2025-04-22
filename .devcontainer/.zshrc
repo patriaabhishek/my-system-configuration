@@ -145,6 +145,11 @@ source $ZSH/oh-my-zsh.sh
 
 alias lsa="eza -1la --icons"
 
+# #NvidiaCUDA
+CUDA_VERSION="12.6"
+export PATH=/usr/local/cuda-${CUDA_VERSION}/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH="/usr/local/cuda-${CUDA_VERSION}/lib64:$LD_LIBRARY_PATH"
+
 #NVM Configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

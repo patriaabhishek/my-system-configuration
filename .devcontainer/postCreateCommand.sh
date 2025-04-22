@@ -18,15 +18,42 @@ sudo usermod -aG sudo codespace
 # Update the package list
 sudo apt-get update
 
+########################
+#### Configure zsh #####
+########################
+
+#Installing Oh My zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#Downloading plugins to install
+git clone https://github.com/bobthecow/git-flow-completion ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/git-flow-completion
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+pip install thefuck
+apt-get install -y tmux
+
+cp ./.devcontainer/.zshrc ~/.zshrc
+
+########################
+#### Configure VIM #####
+########################
+
+cd vim
+./config_vim.sh
+cd ..
+
+
 #####################################
 #### Installing Python in Poetry ####
 #####################################
 
-# Get into the Python project directory
-cd py-env
-
 # Install Python Packages
-poetry update
+poetry config virtualenvs.in-project true
+poetry new py-project
+cd ./py-project
+poetry add mypy black ruff pylint pytest isort flake8 pyright --group dev
+poetry add fastapi pandas numpy scikit-learn matplotlib jupyterlab httpx openai
+poetry source add --priority=explicit pytorch-gpu-src https://download.pytorch.org/whl/cu126
+poetry add --source pytorch-gpu-src torch torchvision torchaudio
 
 # Get the Poetry virtual environment path
 venv_path=$(poetry env info --path)

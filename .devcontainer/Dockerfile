@@ -1,5 +1,6 @@
 # FROM mcr.microsoft.com/devcontainers/python:1-3.12
-FROM mcr.microsoft.com/devcontainers/universal:2-focal
+# FROM mcr.microsoft.com/devcontainers/universal:latest
+FROM mcr.microsoft.com/devcontainers/universal:linux
 
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
