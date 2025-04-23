@@ -27,7 +27,9 @@ cd "C:\Path\To\Your\Script"
 5. Dump the configuration json file to the given folder
 C:\Users\patri\AppData\Local\Programs\oh-my-posh\themes
 
-6. Dump the contents of the settings.json in this repo to the Terminal's settings.json to get the required terminal settings and Material theme
+6. Dump the contents of the settings.json in this repo to the Terminal's settings.json to get the required terminal settings and Material theme.
+   * Try to only copy the ```scheme``` and ```profile``` sections.
+   * Ensure that you have changed the font to the right font family.
 
 7. Run this to install git Posh
 
