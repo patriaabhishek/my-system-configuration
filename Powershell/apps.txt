@@ -9,7 +9,7 @@ Microsoft.OneDrive
 RProject.R
 RProject.Rtools
 VideoLAN.VLC
-WireGuard.WireGuard
+Tailscale.Tailscale
 Google.Chrome.EXE
 Tonec.InternetDownloadManager
 Microsoft.Edge
