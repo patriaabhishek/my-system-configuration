@@ -43,7 +43,9 @@ C:\Users\patri\AppData\Local\Programs\oh-my-posh\themes
 
 ```Set-PSReadLineOption -PredictionSource HistoryAndPlugin```
 
-10. Add the following lines to the file by executing the command ```notepad $PROFILE```
+10. Copy the file ```abhishek_pc_ohmyposhconfig.omp.json``` to the directory shown by running the following command in PowerShell:  ``` "$env:POSH_THEMES_PATH"``` 
+
+11. Add the following lines to the file by executing the command ```notepad $PROFILE```
 
 ```
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/abhishek_pc_ohmyposhconfig.omp.json" | Invoke-Expression
