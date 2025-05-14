@@ -93,6 +93,23 @@
         6379,
         8080
     ],
+    "portsAttributes": {
+        "5432": {
+            "label": "Postgres"
+        },
+        "5050": {
+            "label": "pgAdmin"
+        },
+        "5555": {
+            "label": "Celery"
+        },
+        "6379": {
+            "label": "Redis"
+        },
+        "8080": {
+            "label": "WebApp"
+        }
+    },
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": ".devcontainer/postCreateCommand.sh",
     // Configure tool-specific properties.
