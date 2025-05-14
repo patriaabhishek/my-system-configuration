@@ -56,3 +56,8 @@ function lsa{eza -al --icons}
 function winget_update{winget update --all --silent --accept-package-agreements --accept-source-agreements}
 Import-Module posh-git
 ```
+13. Setup RDP and SSH
+   * Ensure that Tailscale is installed and running in unattended mode
+   * `cd "C:\Path\To\Your\Script"`
+   * Replace `<Enter-Desired-Port>` with desired RDP Port Number
+   * Run `.\configure_rdp_ssh.ps1`
