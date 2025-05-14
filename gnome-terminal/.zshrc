@@ -187,17 +187,6 @@ download_video() {
         yt-dlp --concurrent-fragments 10 --retries 100 --merge-output-format mkv --write-subs --write-auto-subs --embed-subs --sub-langs "en.*" --convert-subs srt --compat-options no-keep-subs "$1" -o "%(playlist_index)s-%(title)s.%(ext)s"
 }
 
-# Wireguard
-vpn_on() {
-        sudo wg-quick up /etc/wireguard/AsusGL552VW.conf
-}
-vpn_off(){
-        sudo wg-quick down /etc/wireguard/AsusGL552VW.conf
-}
-vpn_status(){
-        sudo wg show
-}
-
 # System update
 update_system(){
 
