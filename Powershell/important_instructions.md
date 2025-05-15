@@ -1,5 +1,8 @@
 # Important Instructions
 
+On the **Windows host**, open **PowerShell** with administrative privileges.
+
+
 ## 1. Install Miniconda
 
 ```powershell
@@ -65,12 +68,57 @@ cd "C:\Path\To\Your\Script"
    1. Replace `<Enter-Desired-Port>` with desired RDP Port Number in the file configure_rdp.ps1
    1. Run `.\configure_rdp.ps1`
 
-## 6. Setup SSH as host
+## 6. Setup SSH as Host
 
    1. Ensure that OpenSSH Server and OpenSSH Client are installed using Optional Features in the settings
    1. `cd "C:\Path\To\Your\Script"`
    1. Replace `<Enter-Desired-Port>` with desired SSH Port Number in the file 
    1. Run `.\configure_ssh_host.ps1`
 
-## 7. Setup SSH as client
+## 7. Setup SSH as Client
 
+   1. Ensure that OpenSSH Server and OpenSSH Client are installed using Optional Features in the settings
+   1. `cd "C:\Path\To\Your\Script"`
+   1. Add the following params in the script
+
+      | Variable        | Description                                                                                       | Example Value                           |
+      | --------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------- |
+      | `$manufacturer` | **Manufacturer name** of the remote device. Used for identifying the host.                        | `"Asus"`                                |
+      | `$model`        | **Model name/number** of the remote device. Helps uniquely identify machines from the same brand. | `"GL552VW"`                             |
+      | `$remoteOS`     | Operating system running on the remote host. Acceptable values are `"windows"` or `"unix"`.       | `"windows"`                             |
+      | `$hostAlias`    | **Computed alias** combining manufacturer, model, and OS. Used as a unique reference label.       | `"Asus-GL552VW-windows"`                |
+      | `$hostName`     | **Public IP address or DDNS hostname** of the router assigned by the ISP.                         | `"<ip-address-of-router-by-ISP>"`       |
+      | `$sshUser`      | **Username** on the remote machine (used for SSH login).                                          | `"<username-on-host-machine>"`          |
+      | `$sshPort`      | **Port number** on which SSH is exposed by the router (forwarded internally).                     | `"<port-configured-for-SSH-on-router>"` |
+
+   1. Run `.\configure_ssh_client.ps1`
+
+## 8. Harden SSH Security on Host
+
+   Only do this when the public key has been exchanged between the Host and the Client
+
+   1. Open Terminal
+   1. Edit the SSH Configuration File
+      - For Windows Host
+         ```powershell
+         notepad "$env:ProgramData\ssh\sshd_config"
+         ```
+      - For Unix Host
+         ```bash
+         sudo nano /etc/ssh/sshd_config
+         ```
+   1. In the opened `sshd_config` file, add or update these settings:
+
+         ```ini
+         PasswordAuthentication no
+         StrictModes yes
+         ```
+   1. Save and Restart the SSH Service
+      - For Windows
+         ```powershell
+         Restart-Service sshd
+         ```
+      - For Unix
+         ```bash
+         sudo service ssh restart
+         ```
