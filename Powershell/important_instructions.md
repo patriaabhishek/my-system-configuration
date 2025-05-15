@@ -1,63 +1,76 @@
-1. Install Miniconda
+# Important Instructions
 
-```
+## 1. Install Miniconda
+
+```powershell
 winget install Anaconda.Miniconda3
 conda init --all -y -y
 ```
 
-2. Configure Miniconda 
+## 2. Configure Miniconda
 
-```
+```powershell
 conda create --name py-env python=3.12
 conda activate py-env
 conda config --add channels conda-forge
 conda install pandas numpy scikit-learn scipy matplotlib jupyterlab notebook
+exit
 ```
 
-3. Restart the terminal
+## 3. Install all software using the install software script by running the following command in Powershell
 
-4. Install all software using the install software script by running the following command in Powershell 
-
-```
+```powershell
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 cd "C:\Path\To\Your\Script"
 .\install_apps.ps1
 ```
 
-5. Dump the configuration json file to the given folder
-C:\Users\patri\AppData\Local\Programs\oh-my-posh\themes
+## 4. Terminal Configuration
 
-6. Dump the contents of the settings.json in this repo to the Terminal's settings.json to get the required terminal settings and Material theme.
-   * Try to only copy the ```scheme``` and ```profile``` sections.
-   * Ensure that you have changed the font to the right font family.
+   1. Download the FiraCode Nerd Font from `https://www.nerdfonts.com/font-downloads` and install them
+   1. Install git Posh
 
-7. Run this to install git Posh
+      ```powershell
+      PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force
+      ```
+   1. Copy the file `abhishek_pc_ohmyposhconfig.omp.json` to the directory shown by running the following command in PowerShell: 
+      ```powershell
+      "$env:POSH_THEMES_PATH"
+      ```
+   1. Install PSReadLine
+      ```powershell
+      Install-Module PSReadLine
+      ```
+   1. Install History Plugin
+      ```powershell
+      Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+      ```
+   1. Copy the contents of the settings.json in this repo to the Terminal's settings.json to get the required terminal settings and Material theme
+      - Only copy the ```scheme``` and ```profile``` sections.
+      - Ensure that you have changed the font to the right font family.
+   1. Open the Powershell configuration using ```notepad $PROFILE``` and add the following lines
 
-```PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force```
+      ```powershell
+      oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/abhishek_pc_ohmyposhconfig.omp.json" | Invoke-Expression
+      conda activate py-env
+      function lsa{eza -al --icons}
+      function winget_update{winget update --all --silent --accept-package-agreements --accept-source-agreements}
+      Import-Module posh-git
+      ```
 
-8. Run this to install PSReadline that helps provide completions in PowerShell
+## 5. Setup RDP
 
-```Install-Module PSReadLine```
+   1. Ensure that Tailscale is installed and running in unattended mode
+   1. `cd "C:\Path\To\Your\Script"`
+   1. Replace `<Enter-Desired-Port>` with desired RDP Port Number in the file configure_rdp.ps1
+   1. Run `.\configure_rdp.ps1`
 
-9. Run the following line to set the prediction source
+## 6. Setup SSH as host
 
-```Set-PSReadLineOption -PredictionSource HistoryAndPlugin```
+   1. Ensure that OpenSSH Server and OpenSSH Client are installed using Optional Features in the settings
+   1. `cd "C:\Path\To\Your\Script"`
+   1. Replace `<Enter-Desired-Port>` with desired SSH Port Number in the file 
+   1. Run `.\configure_ssh_host.ps1`
 
-10. Download the FiraCode Nerd Font from ```https://www.nerdfonts.com/font-downloads```
+## 7. Setup SSH as client
 
-11. Copy the file ```abhishek_pc_ohmyposhconfig.omp.json``` to the directory shown by running the following command in PowerShell:  ``` "$env:POSH_THEMES_PATH"``` 
-
-12. Add the following lines to the file by executing the command ```notepad $PROFILE```
-
-```
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/abhishek_pc_ohmyposhconfig.omp.json" | Invoke-Expression
-conda activate py-env
-function lsa{eza -al --icons}
-function winget_update{winget update --all --silent --accept-package-agreements --accept-source-agreements}
-Import-Module posh-git
-```
-13. Setup RDP and SSH
-   * Ensure that Tailscale is installed and running in unattended mode
-   * `cd "C:\Path\To\Your\Script"`
-   * Replace `<Enter-Desired-Port>` with desired RDP Port Number
-   * Run `.\configure_rdp_ssh.ps1`
