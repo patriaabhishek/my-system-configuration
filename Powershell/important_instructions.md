@@ -48,6 +48,10 @@ cd "C:\Path\To\Your\Script"
       ```powershell
       Set-PSReadLineOption -PredictionSource HistoryAndPlugin
       ```
+   1. Install Figlet
+      ```powershell
+      Install-PSResource -Name Figlet
+      ```
    1. Copy the contents of the settings.json in this repo to the Terminal's settings.json to get the required terminal settings and Material theme
       - Only copy the ```scheme``` and ```profile``` sections.
       - Ensure that you have changed the font to the right font family.
@@ -56,9 +60,18 @@ cd "C:\Path\To\Your\Script"
       ```powershell
       oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/abhishek_pc_ohmyposhconfig.omp.json" | Invoke-Expression
       conda activate py-env
+      Import-Module posh-git
+      Import-Module Figlet
       function lsa{eza -al --icons}
       function winget_update{winget update --all --silent --accept-package-agreements --accept-source-agreements}
-      Import-Module posh-git
+      function update_system{
+          Write-Figlet "System Conda"
+          conda update --all -y -y
+          conda clean --all -y -y -y
+          Write-Figlet "Apps"
+          winget_update
+      }
+      
       ```
 
 ## 5. Setup RDP
