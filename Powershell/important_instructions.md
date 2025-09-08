@@ -2,8 +2,18 @@
 
 On the **Windows host**, open **PowerShell** with administrative privileges.
 
+## 0. Install Powershell
 
-## 1. Install Miniconda
+```powershell
+winget install --id Microsoft.PowerShell --source winget
+```
+
+## 1. Install UV (Preferred) / Miniconda
+
+```powershell
+winget install --id=astral-sh.uv  -e
+uv python install 3.12 --default
+```
 
 ```powershell
 winget install Anaconda.Miniconda3
