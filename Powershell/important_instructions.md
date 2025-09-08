@@ -24,7 +24,10 @@ conda init --all -y -y
 
 ```powershell
 cd $env:USERPROFILE
-uv venv py-env
+uv init py-env
+cd py-env
+uv venv --clear
+uv sync
 ```
 
 ```powershell
@@ -77,15 +80,24 @@ cd "C:\Path\To\Your\Script"
       # If installing Python with Miniconda
       conda activate py-env
       # If installing Python with UV
-      $env:USERPROFILE\py-env\Scripts\activate
+      Join-Path -Path $env:USERPROFILE -ChildPath "py-env\.venv\Scripts\activate.ps1" | Invoke-Expression
       Import-Module posh-git
       Import-Module Figlet
       function lsa{eza -al --icons}
       function winget_update{winget update --all --silent --accept-package-agreements --accept-source-agreements}
       function update_system{
+
+          # If configuring Python with UV
+          Write-Figlet "System Python via UV"
+          cd "$env:USERPROFILE\py-env"
+          uv sync
+          cd "$env:USERPROFILE"
+
+          # If configuring Python with Miniconda
           Write-Figlet "System Conda"
           conda update --all -y -y
           conda clean --all -y -y -y
+      
           Write-Figlet "Apps"
           winget_update
       }
