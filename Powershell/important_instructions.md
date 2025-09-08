@@ -20,7 +20,12 @@ winget install Anaconda.Miniconda3
 conda init --all -y -y
 ```
 
-## 2. Configure Miniconda
+## 2. Configure UV (Preferred) / Miniconda
+
+```powershell
+cd $env:USERPROFILE
+uv venv py-env
+```
 
 ```powershell
 conda create --name py-env python=3.12
@@ -69,7 +74,10 @@ cd "C:\Path\To\Your\Script"
 
       ```powershell
       oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/abhishek_pc_ohmyposhconfig.omp.json" | Invoke-Expression
+      # If installing Python with Miniconda
       conda activate py-env
+      # If installing Python with UV
+      $env:USERPROFILE\py-env\Scripts\activate
       Import-Module posh-git
       Import-Module Figlet
       function lsa{eza -al --icons}
