@@ -22,9 +22,7 @@ Postman.Postman
 eza-community.eza
 Microsoft.PowerToys
 Microsoft.VisualStudioCode
-Microsoft.VisualStudioCode
 MSYS2.MSYS2
-Canonical.Ubuntu.2204
 WhatsApp.WhatsApp
 Apple.AppleMobileDeviceSupport
 Microsoft.Office
