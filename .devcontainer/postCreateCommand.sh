@@ -56,7 +56,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 
 sudo add-apt-repository universe
 
-sudo apt install -y coreutils wget curl openssl cmake jq grc tree build-essential golang openjdk-21-jdk htop unzip nano cmake tmux figlet iputils net-tools
+sudo apt install -y coreutils wget curl openssl cmake jq grc tree build-essential golang openjdk-21-jdk htop unzip nano cmake tmux figlet iputils-ping net-tools
 
 ############
 # Firacode #
