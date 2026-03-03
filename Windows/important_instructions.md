@@ -165,3 +165,8 @@ cd "C:\Path\To\Your\Script"
          ```bash
          sudo service ssh restart
          ```
+
+## 9. Tailscale Configuration
+
+   1. Whenever a new device is added to the Tailscale, ensure that the auth doesn't expire
+   1. Go to the Tailscale console in web browser, then disable key expiry for the device
