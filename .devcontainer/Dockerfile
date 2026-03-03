@@ -1,6 +1,4 @@
-# FROM mcr.microsoft.com/devcontainers/python:1-3.12
-# FROM mcr.microsoft.com/devcontainers/universal:latest
-FROM mcr.microsoft.com/devcontainers/universal:linux
+FROM mcr.microsoft.com/devcontainers/base:debian
 
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
@@ -16,16 +14,11 @@ ENV NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
 ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 ENV PIP_CERT=/etc/ssl/certs/ca-certificates.crt
 ENV GRPC_DEFAULT_SSL_ROOTS_FILE_PATH=/etc/ssl/certs/ca-certificates.crt
-ENV POETRY_HOME=/etc/poetry
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y nginx && \
     apt-get clean -y && \
     rm -rf /tmp/scripts
 
-USER root
-# RUN usermod -aG sudo vscode
-# USER vscode
-RUN usermod -aG sudo codespace
-USER codespace
+RUN usermod -aG sudo vscode
+USER vscode
