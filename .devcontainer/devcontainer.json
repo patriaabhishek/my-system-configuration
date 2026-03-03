@@ -39,13 +39,13 @@
         "ghcr.io/devcontainers-extra/features/vscode-server:latest": {},
         "ghcr.io/devcontainers-extra/features/bin:latest": {},
         "ghcr.io/devcontainers-extra/features/devcontainers-cli:latest": {},
-        // // Installing GPU
-        // "ghcr.io/devcontainers/features/nvidia-cuda:latest": {
-        //     "cudaVersion": "12.6",
-        //     "installCudnn": true,
-        //     "installCudnnDev": true,
-        //     "installToolkit": true
-        // },
+        // Installing GPU
+        "ghcr.io/devcontainers/features/nvidia-cuda:latest": {
+            "cudaVersion": "13.1",
+            "installCudnn": true,
+            "installCudnnDev": true,
+            "installToolkit": true
+        },
         // Installing youtube components and packages
         "ghcr.io/devcontainers-extra/features/ffmpeg-apt-get:1": {},
         "ghcr.io/devcontainers-extra/features/yt-dlp:2": {}
