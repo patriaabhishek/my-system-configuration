@@ -34,14 +34,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 cp ./.devcontainer/.zshrc ~/.zshrc
 
-#################
-# Configure VIM #
-#################
-
-cd vim
-./config_vim.sh
-cd ..
-
 ##############################
 # Installing Python and Node #
 ##############################
@@ -56,7 +48,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 
 sudo add-apt-repository universe
 
-sudo apt install -y coreutils wget curl openssl cmake jq grc tree build-essential golang openjdk-21-jdk htop unzip nano cmake tmux figlet iputils-ping net-tools
+sudo apt install -y coreutils wget curl openssl cmake jq grc tree build-essential golang openjdk-21-jdk htop unzip nano cmake tmux figlet iputils-ping net-tools mono-complete
 
 ############
 # Firacode #
@@ -103,3 +95,11 @@ cd ./configure_nano
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh)"
 cd ..
 rm -R configure_nano
+
+#################
+# Configure VIM #
+#################
+
+cd vim
+./config_vim.sh
+cd ..
