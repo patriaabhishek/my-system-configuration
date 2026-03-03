@@ -1,6 +1,0 @@
-wget
-curl
-openssl
-python
-nano
-zsh
