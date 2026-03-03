@@ -230,7 +230,6 @@ cd "C:\Path\To\Your\Script"
       schtasks /Create /TN "StartWSL" /TR "wsl.exe -u root echo WSL Started" /SC ONSTART /RL HIGHEST /F
       ```
 
-
    1. Install Required Packages
 
       Run the postCreate script from the .devcontainer folder inside your WSL distro to install all necessary packages:
@@ -239,6 +238,10 @@ cd "C:\Path\To\Your\Script"
       # Inside WSL
       ./.devcontainer/postCreate.sh
       ```
+
+   1. Install Docker, Helm, Kubectl, and Minikube using the script from the Linux folder in this repo
+
+   1. Install Portainer by following instructions from https://docs.portainer.io/start/install-ce/server/docker/linux
 
    1. Configure SSH Access
 
