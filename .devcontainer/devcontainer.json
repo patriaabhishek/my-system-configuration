@@ -23,53 +23,31 @@
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         // Installing core linux components and packages
-        "ghcr.io/devcontainers/features/common-utils:2": {},
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
-        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
-        "ghcr.io/devcontainers/features/git-lfs:1": {},
-        "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/devcontainers/features/node:1": {},
-        "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {},
-        "ghcr.io/devcontainers-extra/features/nmap-apt-get:1": {},
-        "ghcr.io/devcontainers-extra/features/fzf:1": {},
-        "ghcr.io/devcontainers-extra/features/prometheus:1": {},
-        "ghcr.io/devcontainers-extra/features/tmux-apt-get:1": {},
-        "ghcr.io/devcontainers-extra/features/vscode-cli:1": {},
-        "ghcr.io/devcontainers-extra/features/vscode-server:1": {},
-        // "ghcr.io/devcontainers-extra/features/actions-runner:1": {},
-        "ghcr.io/devcontainers-extra/features/bin:1": {},
-        "ghcr.io/devcontainers-extra/features/devcontainers-cli:1": {},
-        "ghcr.io/devcontainers-extra/features/mkcert:1": {},
-        // Installing GPU
-        "ghcr.io/devcontainers/features/nvidia-cuda:latest": {
-            "cudaVersion": "12.6",
-            "installCudnn": true,
-            "installCudnnDev": true,
-            "installToolkit": true
+        "ghcr.io/devcontainers/features/common-utils:latest": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:latest": {
+            "moby": "false"
         },
-        // Installing python components and packages
-        "ghcr.io/devcontainers-extra/features/pipx-package:1": {},
-        "ghcr.io/devcontainers-extra/features/poetry:2": {},
-        "ghcr.io/devcontainers-extra/features/black:2": {},
-        "ghcr.io/devcontainers-extra/features/isort:2": {},
-        "ghcr.io/devcontainers-extra/features/mypy:2": {},
-        "ghcr.io/devcontainers-extra/features/ruff:1": {},
-        "ghcr.io/devcontainers-extra/features/flake8:2": {},
-        "ghcr.io/devcontainers-extra/features/pylint:2": {},
-        // Installing typescript components and packages
-        "ghcr.io/devcontainers-extra/features/typescript:2": {},
-        "ghcr.io/devcontainers-extra/features/tsx:1": {},
-        "ghcr.io/devcontainers-extra/features/ts-node:1": {},
-        "ghcr.io/devcontainers-extra/features/jest:2": {},
-        "ghcr.io/devcontainers-extra/features/nestjs-cli:2": {},
-        "ghcr.io/devcontainers-extra/features/prettier:1": {},
-        // Installing devops components and packages
-        "ghcr.io/devcontainers/features/terraform:1": {},
-        "ghcr.io/devcontainers-extra/features/ansible:2": {},
-        "ghcr.io/devcontainers-extra/features/cookiecutter:2": {},
-        "ghcr.io/devcontainers-extra/features/tailscale:1": {},
-        "ghcr.io/devcontainers-extra/features/tldr:2": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:latest": {
+            "moby": "false"
+        },
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:latest": {},
+        "ghcr.io/devcontainers/features/git-lfs:latest": {},
+        "ghcr.io/devcontainers/features/git:latest": {},
+        // "ghcr.io/devcontainers/features/node:latest": {},
+        "ghcr.io/devcontainers-extra/features/zsh-plugins:latest": {},
+        "ghcr.io/devcontainers-extra/features/nmap-apt-get:latest": {},
+        // "ghcr.io/devcontainers-extra/features/prometheus:latest": {},
+        "ghcr.io/devcontainers-extra/features/vscode-cli:latest": {},
+        "ghcr.io/devcontainers-extra/features/vscode-server:latest": {},
+        "ghcr.io/devcontainers-extra/features/bin:latest": {},
+        "ghcr.io/devcontainers-extra/features/devcontainers-cli:latest": {},
+        // // Installing GPU
+        // "ghcr.io/devcontainers/features/nvidia-cuda:latest": {
+        //     "cudaVersion": "12.6",
+        //     "installCudnn": true,
+        //     "installCudnnDev": true,
+        //     "installToolkit": true
+        // },
         // Installing youtube components and packages
         "ghcr.io/devcontainers-extra/features/ffmpeg-apt-get:1": {},
         "ghcr.io/devcontainers-extra/features/yt-dlp:2": {}
@@ -88,20 +66,12 @@
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [
         5432,
-        5050,
-        5555,
         6379,
         8080
     ],
     "portsAttributes": {
         "5432": {
             "label": "Postgres"
-        },
-        "5050": {
-            "label": "pgAdmin"
-        },
-        "5555": {
-            "label": "Celery"
         },
         "6379": {
             "label": "Redis"
@@ -117,12 +87,7 @@
         "vscode": { // Add the IDs of extenstions you want installed when the container is created}}
             "extensions": [
                 "ms-vscode.vscode-typescript-next",
-                "infeng.vscode-react-typescript",
-                "firsttris.vscode-jest-runner",
-                "AmazonWebServices.aws-toolkit-vscode",
-                "LittleFoxTeam.vscode-python-test-adapter",
                 "ms-vscode.makefile-tools",
-                "ckolkman.vscode-postgres",
                 "adpyke.vscode-sql-formatter",
                 "charliermarsh.ruff",
                 "cweijan.dbclient-jdbc",
@@ -136,12 +101,7 @@
                 "github.copilot",
                 "github.copilot-chat",
                 "hashicorp.terraform",
-                "kevinrose.vsc-python-indent",
-                "linhmtran168.mac-ca-vscode",
                 "mechatroner.rainbow-csv",
-                "mhutchie.git-graph",
-                "mindaro-dev.file-downloader",
-                "ms-azuretools.vscode-docker",
                 "ms-edgedevtools.vscode-edge-devtools",
                 "ms-kubernetes-tools.vscode-kubernetes-tools",
                 "ms-python.autopep8",
@@ -166,7 +126,6 @@
                 "ms-vscode-remote.vscode-remote-extensionpack",
                 "ms-vscode.cmake-tools",
                 "ms-vscode.hexeditor",
-                "ms-vscode.onedrive-browser",
                 "ms-vscode.remote-explorer",
                 "ms-vscode.remote-server",
                 "ms-vscode.theme-markdownkit",
@@ -178,13 +137,8 @@
                 "streetsidesoftware.code-spell-checker",
                 "timonwong.shellcheck",
                 "twxs.cmake",
-                "ukoloff.win-ca",
-                "visualstudioexptteam.intellicode-api-usage-examples",
-                "visualstudioexptteam.vscodeintellicode",
                 "vscode-icons-team.vscode-icons",
-                "waderyan.gitblame",
-                "wholroyd.jinja",
-                "yzhang.markdown-all-in-one",
+                "yzhang.markdown-all-in-one"
             ]
         }
     },
