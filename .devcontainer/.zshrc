@@ -75,11 +75,9 @@ plugins=(
 	fzf
 	docker
     docker-compose
-    ansible
     aws
     azure
     bgnotify
-    celery
     command-not-found
     copypath
     extract
@@ -92,20 +90,14 @@ plugins=(
     nmap
     npm
     nvm
-    otp
     pip
-    podman
-    poetry
     python
     qrcode
     react-native
-    safe-paste
     terraform
-    ubuntu
     vundle
     yarn
     vscode
-	thefuck
 	history
 	emoji
 	colored-man-pages
@@ -145,19 +137,10 @@ source $ZSH/oh-my-zsh.sh
 
 alias lsa="eza -1la --icons"
 
-# #NvidiaCUDA
-CUDA_VERSION="12.6"
-export PATH=/usr/local/cuda-${CUDA_VERSION}/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH="/usr/local/cuda-${CUDA_VERSION}/lib64:$LD_LIBRARY_PATH"
-
 #NVM Configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-#TheFuck
-eval $(thefuck --alias)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Youtube Download
 download_video() {
