@@ -170,3 +170,94 @@ cd "C:\Path\To\Your\Script"
 
    1. Whenever a new device is added to the Tailscale, ensure that the auth doesn't expire
    1. Go to the Tailscale console in web browser, then disable key expiry for the device
+
+## 10. WSL Setup for Linux Development on Windows
+
+   You do not need Docker Desktop — WSL alone is enough! It creates a lightweight VM where your Linux distro runs seamlessly. 
+   
+   Follow these steps to set it up:
+   
+   1. Enable WSL on Windows
+
+      Make sure Windows Subsystem for Linux (WSL) is enabled:
+
+      ```powershell
+      # Run in PowerShell as Administrator
+      wsl --install
+      ```
+
+   1. List Available Linux Distributions
+
+   1. Check which Linux distros you can install:
+
+      ```powershell
+      wsl.exe --list --online
+      ```
+   
+   1. Install Your Chosen Distro
+
+      Install a specific Linux distro by name:
+
+      ```powershell
+      # Example: install Ubuntu
+      wsl.exe --install <Distribution-Name>
+      ```
+
+      After installation, set up your username and password when prompted.
+
+   1. Configure WSL Settings
+
+      Open Windows Subsystem for Linux Settings from the Start menu and adjust the following:
+
+            💾 File System: Reduce the VHD file size
+
+            🌐 Networking: Change mode to Mirrored
+
+            🔒 Hyper-V Firewall: Ensure it is enabled
+
+            🌍 Localhost Forwarding: Ensure it is enabled
+
+            ⏱️ Optional Features: Set VM Idle timeout to -1 ms (prevents auto shutdown)
+
+            🖥️ Nested Virtualization: Ensure it is enabled
+
+   1. Auto-Start WSL on Windows
+
+      WSL does not start automatically. Use Task Scheduler to launch it at Windows startup:
+
+      ```powershell
+      # Run as Administrator
+      schtasks /Create /TN "StartWSL" /TR "wsl.exe -u root echo WSL Started" /SC ONSTART /RL HIGHEST /F
+      ```
+
+
+   1. Install Required Packages
+
+      Run the postCreate script from the .devcontainer folder inside your WSL distro to install all necessary packages:
+
+      ```bash
+      # Inside WSL
+      ./.devcontainer/postCreate.sh
+      ```
+
+   1. Configure SSH Access
+
+      1. Set up an SSH server inside WSL. The server port is directly accessible from Windows.
+
+      1. Create a Windows Firewall rule to allow SSH traffic:
+
+         ```powershell
+         # Replace <Port-Number> with your SSH server port
+         New-NetFirewallRule -DisplayName "SSH-WSL-Custom" -Direction Inbound -Protocol TCP -LocalPort <Port-Number> -Action Allow
+         ```
+
+   1. Enable NVIDIA GPU Support
+
+      If your WSL needs GPU access (CUDA, nvidia-smi), add the following to your distro’s .zshrc or .bashrc:
+
+      ```bash
+      # Adding Nvidia Utilities exposed from Windows to Linux
+      export PATH="${PATH}:/usr/lib/wsl/lib/"
+      ```
+
+      Then run ```nvidia-smi``` in the shell to get the device details
