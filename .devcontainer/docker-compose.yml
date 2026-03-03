@@ -14,6 +14,14 @@ services:
         # Append -bullseye or -buster to pin to an OS version.
         # Use -bullseye variants on local arm64/Apple Silicon.
         VARIANT: 16
+      # This basically works the same as --gpus all, but is the syntax for docker-compose.
+      deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
 
     volumes:
       - ../..:/workspaces:cached
