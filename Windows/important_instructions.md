@@ -264,3 +264,9 @@ cd "C:\Path\To\Your\Script"
       ```
 
       Then run ```nvidia-smi``` in the shell to get the device details
+
+   1. Enable NVIDIA GPU Support in Containers within WSL
+
+      1. Install only the prerequisites and configure the production repository of Nvidia Container Toolkit using https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html (Do NOT install the Container Toolkit)
+      1. Remove the Pinned Container Toolkit version and only install the generic packages
+      1. Restart the Docker service using ```sudo systemctl restart docker```
