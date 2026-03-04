@@ -254,19 +254,38 @@ cd "C:\Path\To\Your\Script"
          New-NetFirewallRule -DisplayName "SSH-WSL-Custom" -Direction Inbound -Protocol TCP -LocalPort <Port-Number> -Action Allow
          ```
 
-   1. Enable NVIDIA GPU Support
+## 11. Enable NVIDIA GPU Support in WSL
 
-      If your WSL needs GPU access (CUDA, nvidia-smi), add the following to your distro’s .zshrc or .bashrc:
+   If your WSL needs GPU access (CUDA, nvidia-smi), add the following to your distro’s .zshrc or .bashrc:
 
-      ```bash
-      # Adding Nvidia Utilities exposed from Windows to Linux
-      export PATH="${PATH}:/usr/lib/wsl/lib/"
-      ```
+   ```bash
+   # Adding Nvidia Utilities exposed from Windows to Linux
+   export PATH="${PATH}:/usr/lib/wsl/lib/"
+   ```
 
-      Then run ```nvidia-smi``` in the shell to get the device details
+   Then run ```nvidia-smi``` in the shell to get the device details
 
-   1. Enable NVIDIA GPU Support in Containers within WSL
+   Do NOT install NVIDIA drivers inside your WSL distribution.
 
-      1. Install only the prerequisites and configure the production repository of Nvidia Container Toolkit using https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html (Do NOT install the Container Toolkit)
-      1. Remove the Pinned Container Toolkit version and only install the generic packages
-      1. Restart the Docker service using ```sudo systemctl restart docker```
+   When using Windows Subsystem for Linux (WSL), both the NVIDIA GPU drivers and CUDA runtime are provided by Windows and exposed to WSL through a paravirtualization layer.
+
+   Installing NVIDIA drivers inside WSL can cause conflicts and break GPU functionality both in Windows and the WSL
+
+   What You Should Do
+
+   - ✅ Install the NVIDIA drivers on Windows only.
+   - ❌ Do NOT install NVIDIA drivers inside WSL.
+   - ❌ Do NOT install the full CUDA package inside WSL.
+
+   If your project requires CUDA headers or development tools (e.g., for compiling code):
+
+   - Install only the CUDA Toolkit inside WSL.
+   - Do not install the full CUDA driver package.
+
+   This ensures you have the necessary development libraries without interfering with the Windows-provided GPU drivers.
+
+## 12. Enable NVIDIA GPU Support in Containers within WSL
+
+   1. Install only the prerequisites and configure the production repository of Nvidia Container Toolkit using https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html (Do NOT install the Container Toolkit)
+   1. Remove the Pinned Container Toolkit version and only install the generic packages
+   1. Restart the Docker service using ```sudo systemctl restart docker```
