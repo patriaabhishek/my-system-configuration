@@ -101,10 +101,10 @@ rm -R configure_nano
 #################
 
 #Installing Vim
-sudo apt install -y vim
+sudo apt install -y vim-nox
 
 #Copy .vimrc
-cp .vimrc ~/.vimrc
+cp  ./.devcontainer/.vimrc ~/.vimrc
 
 #Install Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
