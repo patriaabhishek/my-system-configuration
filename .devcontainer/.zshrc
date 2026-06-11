@@ -137,6 +137,14 @@ source $ZSH/oh-my-zsh.sh
 
 alias lsa="eza -1la --icons"
 
+#Python Configuration
+if [ -d "$HOME/py-env/.venv" ]; then
+    source $HOME/py-env/.venv/bin/activate
+fi
+
+#NVIM
+export PATH="$PATH:/opt/nvim/"
+
 #NVM Configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

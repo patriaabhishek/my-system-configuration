@@ -97,21 +97,12 @@ cd ..
 rm -R configure_nano
 
 #################
-# Configure VIM #
+# Configure NVIM #
 #################
 
-#Installing Vim
-sudo apt install -y vim-nox
+#Installing NVIM
 
-#Copy .vimrc
-cp  ./.devcontainer/.vimrc ~/.vimrc
-
-#Install Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-#Install Plugins
-vim --clean '+source ~/.vimrc' +PluginInstall +qall
-
-#Install YouCompleteMe
-cd ~/.vim/bundle/youcompleteme
-python3 install.py --all
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+chmod u+x nvim-linux-x86_64.appimage
+mkdir -p /opt/nvim
+mv nvim-linux-x86_64.appimage /opt/nvim/nvim
